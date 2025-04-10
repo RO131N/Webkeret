@@ -1,0 +1,59 @@
+<form [formGroup]="registerform">
+    <mat-form-field>
+        <mat-label>Név</mat-label>
+        <input type="text" matInput formControlName="name" />
+        @if (registerform.get('name')?.hasError('required')) {
+        <mat-error> Kötelezően kitöltendő mező </mat-error>
+        } 
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Születési dátum</mat-label>
+        <input type="date" matInput formControlName="date" />
+        @if (registerform.get('date')?.hasError('required')) {
+        <mat-error> Kötelezően kitöltendő mező </mat-error>
+        } 
+      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" />
+      @if (registerform.get('email')?.hasError('required')) {
+      <mat-error> Kötelezően kitöltendő mező </mat-error>
+      } @else if (registerform.get('email')?.hasError('email')) {
+      <mat-error>A formátum nem megfelelő</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Város</mat-label>
+        <input type="text" matInput formControlName="city" />
+        @if (registerform.get('city')?.hasError('required')) {
+        <mat-error> Kötelezően kitöltendő mező </mat-error>
+        } 
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Telefonszám</mat-label>
+        <input type="tel" matInput formControlName="phone" />
+        @if (registerform.get('phone')?.hasError('required')) {
+        <mat-error> Kötelezően kitöltendő mező </mat-error>
+        } 
+      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Jelszó</mat-label>
+      <input type="password" matInput formControlName="password" />
+      @if (registerform.get('password')?.hasError('required')) {
+      <mat-error> Kötelezően kitöltendő mező </mat-error>
+      } @else if (registerform.get('password')?.hasError('minlength')) {
+      <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Jelszó</mat-label>
+        <input type="password" matInput formControlName="repassword" />
+        @if (registerform.get('repassword')?.hasError('required')) {
+        <mat-error> Kötelezően kitöltendő mező </mat-error>
+        } @else if (registerform.get('repassword')?.hasError('minlength')) {
+        <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
+        }
+      </mat-form-field>
+    <button mat-flat-button>Bejelentkezés</button>
+  </form>
+  

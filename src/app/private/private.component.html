@@ -1,0 +1,9 @@
+<mat-drawer #drawer mode="over" class="drawerclass">
+    <button mat-button (click)="drawer.close()">☰ Menü</button>    
+  </mat-drawer>
+<mat-drawer-container class="layout-container">
+    <mat-drawer-content>
+      <app-menu (sidenav)="drawer.open()"></app-menu>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  <router-outlet></router-outlet>    

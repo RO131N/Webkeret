@@ -1,0 +1,13 @@
+<div class="content-div">
+  <div><h1>Üdvözöllek a weboldalon!</h1></div>
+  <div></div>
+  <div>
+    @if (page==="login") {
+
+    <button mat-flat-button (click)="switchpage()">Regisztráció</button>
+}
+@else {
+    <button mat-flat-button (click)="switchpage()">Bejelentkezés</button>
+}
+</div>
+</div>

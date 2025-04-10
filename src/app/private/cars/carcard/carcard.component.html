@@ -1,0 +1,31 @@
+<mat-card [ngStyle]="Index%2==0?{'background-color':'white'}:{'background-color':'gray'}">
+    <mat-card-header>
+        {{Car.tipus}}
+    </mat-card-header>
+    <mat-card-content>
+        <span>
+            {{'Model: '+Car.model}}
+        </span>
+        <span>
+            {{'Gyártái év: '+Car.gyartasi_ev}}
+        </span>
+        <span>
+            {{'Rendszám: '+Car.rendszam}}
+        </span>
+        <span>
+            {{'Tömeg: '+Car.tomeg}}
+        </span>
+        <span>
+            {{'Teljesítmény: '+Car.teljesitmeny}}
+        </span>
+        <span>
+            {{'Üzemanyag: '+Car.uzemanyag}}
+        </span>
+        <span>
+            {{'Tulajdonos: '+Car.tulaj}}
+        </span>
+        <span>
+            {{'Biztosítás oka: '+Car.ok}}
+        </span>
+    </mat-card-content>
+</mat-card>
