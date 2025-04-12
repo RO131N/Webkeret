@@ -1,6 +1,9 @@
-.drawerclass{
-    width: 30%;
-    height: 100%;
-    position: absolute;
-    
+@import "../shared/styles/colors.scss";
+
+.drawerclass {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  background-color: #eeeeee;
+  color: $orange;
 }

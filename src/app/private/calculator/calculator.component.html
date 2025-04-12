@@ -1,1 +1,48 @@
-<p>calculator works!</p>
+@if (carArray.length>0) {
+<mat-card>
+  <mat-card-header>
+    <mat-form-field>
+      <mat-select [formControl]="actualIndex">
+        @for (item of carArray; track $index; let i = $index) {
+
+        <mat-option [value]="i">{{
+          carArray[i].model + " - " + carArray[i].rendszam
+        }}</mat-option>
+
+        }
+      </mat-select>
+    </mat-form-field>
+  </mat-card-header>
+
+
+  <mat-card-content>
+
+
+    @if (display) {
+
+        @if (currency==='ft') {
+            <span>{{random + 'ft'}}</span>
+        }
+        @else if (currency==='dollar') {
+            <span>{{random | toDollar}}</span>
+        }
+
+        @else if (currency==='euro') {
+            <span>{{random | toEuro}}</span>
+        }
+
+    }
+
+
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div>
+      <button mat-icon-button (click)="currency='euro'"><mat-icon>euro</mat-icon></button>
+      <button mat-icon-button (click)="currency='dollar'"><mat-icon>attach_money</mat-icon></button>
+      <button mat-icon-button (click)="currency='ft'"><mat-icon>currency_exchange</mat-icon></button>
+    </div>
+    <button mat-flat-button (click)="calculate()">Kiszámítás</button>
+  </mat-card-footer>
+</mat-card>
+}

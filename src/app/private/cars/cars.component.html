@@ -1,3 +1,8 @@
-@for (car of cararray; track $index ; let i = $index) {
+<mat-tab-group>
+  <mat-tab label="Autóim">
+    @for (car of cararray; track $index ; let i = $index) {
     <app-carcard [Car]="car" [Index]="i"></app-carcard>
-}
+    }
+  </mat-tab>
+  <mat-tab label="Autó hozzáadása"><app-car-form></app-car-form></mat-tab>
+</mat-tab-group>

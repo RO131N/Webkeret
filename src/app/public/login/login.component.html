@@ -16,6 +16,8 @@
     } @else if (loginForm.get('password')?.hasError('minlength')) {
     <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
     }
+    
   </mat-form-field>
-  <button mat-flat-button>Bejelentkezés</button>
+  <p>Teszteléshez írd be: email:a&#64;a jelszó:111111</p>
+  <button mat-flat-button (click)="navigates('main')">Bejelentkezés</button>
 </form>

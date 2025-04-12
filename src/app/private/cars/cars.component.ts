@@ -1,74 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarcardComponent } from './carcard/carcard.component';
 import { Car } from '../../shared/interfaces/car';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CarFormComponent } from './car-form/car-form.component';
 
 @Component({
   selector: 'app-cars',
-  imports: [CarcardComponent],
+  imports: [CarcardComponent,MatTabsModule, CarFormComponent],
   templateUrl: './cars.component.html',
   styleUrl: './cars.component.scss',
 })
-export class CarsComponent {
+export class CarsComponent implements OnInit {
   cararray: Array<Car> = [
-    {
-      id: '1',
-      rendszam: 'ASD-111',
-      tipus: 'Tesla',
-      ok: 'Évfordulós biztosítás váltás',
-      model: 'Model Y',
-      uzemanyag: 'elektromos',
-      gyartasi_ev: '2010',
-      teljesitmeny: '70kw',
-      tomeg: '2000kg',
-      tulaj: 'Én',
-    },
-    {
-      id: '1',
-      rendszam: 'ASD-111',
-      tipus: 'Tesla',
-      ok: 'Évfordulós biztosítás váltás',
-      model: 'Model Y',
-      uzemanyag: 'elektromos',
-      gyartasi_ev: '2010',
-      teljesitmeny: '70kw',
-      tomeg: '2000kg',
-      tulaj: 'Én',
-    },
-    {
-      id: '1',
-      rendszam: 'ASD-111',
-      tipus: 'Tesla',
-      ok: 'Évfordulós biztosítás váltás',
-      model: 'Model Y',
-      uzemanyag: 'elektromos',
-      gyartasi_ev: '2010',
-      teljesitmeny: '70kw',
-      tomeg: '2000kg',
-      tulaj: 'Én',
-    },
-    {
-      id: '1',
-      rendszam: 'ASD-111',
-      tipus: 'Tesla',
-      ok: 'Évfordulós biztosítás váltás',
-      model: 'Model Y',
-      uzemanyag: 'elektromos',
-      gyartasi_ev: '2010',
-      teljesitmeny: '70kw',
-      tomeg: '2000kg',
-      tulaj: 'Én',
-    },
-    {
-      id: '1',
-      rendszam: 'ASD-111',
-      tipus: 'Tesla',
-      ok: 'Évfordulós biztosítás váltás',
-      model: 'Model Y',
-      uzemanyag: 'elektromos',
-      gyartasi_ev: '2010',
-      teljesitmeny: '70kw',
-      tomeg: '2000kg',
-      tulaj: 'Én',
-    },
+    
   ];
+
+  ngOnInit(): void {
+   if(localStorage.getItem('cars')){
+    this.cararray= JSON.parse(localStorage.getItem('cars')!) as Array<Car>
+   }
+  }
 }

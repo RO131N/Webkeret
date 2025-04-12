@@ -12,4 +12,5 @@ import { CommonModule } from '@angular/common';
 export class CarcardComponent {
   @Input() Car!: Car;
   @Input() Index!: number;
+  
 }

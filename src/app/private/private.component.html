@@ -1,5 +1,11 @@
 <mat-drawer #drawer mode="over" class="drawerclass">
-    <button mat-button (click)="drawer.close()">☰ Menü</button>    
+    <button mat-icon-button (click)="drawer.close()"><mat-icon>menu</mat-icon></button>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+        
   </mat-drawer>
 <mat-drawer-container class="layout-container">
     <mat-drawer-content>

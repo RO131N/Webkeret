@@ -1,0 +1,78 @@
+<form [formGroup]="carform">
+  <mat-form-field>
+    <mat-label>Rendszám:</mat-label>
+    <input type="text" matInput formControlName="rszam" />
+    @if (carform.get('rszam')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Típus:</mat-label>
+    <input type="text" matInput formControlName="tipus" />
+    @if (carform.get('tipus')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Biztosítási ok:</mat-label>
+    <mat-select formControlName="ok">
+      <mat-option value="Évfordulós biztosítás váltás"
+        >Évfordulós biztosítás váltás</mat-option
+      >
+      <mat-option value="Új vagy használt jármű vásárlás"
+        >Új vagy használt jármű vásárlás</mat-option
+      >
+    </mat-select>
+    @if (carform.get('ok')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input type="text" matInput formControlName="model" />
+    @if (carform.get('model')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Üzemanyag</mat-label>
+    <mat-select formControlName="uzemanyag">
+      <mat-option value="benzin">Benzin</mat-option>
+      <mat-option value="dízel">Dízel</mat-option>
+      <mat-option value="elektromos">Elektromos</mat-option>
+    </mat-select>
+    @if (carform.get('uzemanyag')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gyárási év</mat-label>
+    <input type="date" matInput formControlName="gyartasi_ev" />
+    @if (carform.get('gyartasi_ev')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Teljesítmény</mat-label>
+    <input type="text" matInput formControlName="teljesitmeny" />
+    @if (carform.get('teljesitmeny')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tömeg</mat-label>
+    <input type="text" matInput formControlName="tomeg" />
+    @if (carform.get('tomeg')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tulaj</mat-label>
+    <input type="text" matInput formControlName="tulaj" />
+    @if (carform.get('tulaj')?.hasError('required')) {
+    <mat-error> Kötelezően kitöltendő mező </mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-flat-button (click)="addCar()">Hozzáadás</button>
+</form>
