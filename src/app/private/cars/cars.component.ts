@@ -1,23 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { CarcardComponent } from './carcard/carcard.component';
+import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
+
+import { CarService } from '../../shared/services/car.service';
 import { Car } from '../../shared/interfaces/car';
-import {MatTabsModule} from '@angular/material/tabs';
+
+import { CarcardComponent } from './carcard/carcard.component';
 import { CarFormComponent } from './car-form/car-form.component';
 
 @Component({
   selector: 'app-cars',
-  imports: [CarcardComponent,MatTabsModule, CarFormComponent],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTabsModule,
+    CarcardComponent,
+    CarFormComponent
+  ],
   templateUrl: './cars.component.html',
-  styleUrl: './cars.component.scss',
+  styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
-  cararray: Array<Car> = [
-    
-  ];
+  filteredCars: Car[] = [];  // ✅ helyesen deklarált
+
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-   if(localStorage.getItem('cars')){
-    this.cararray= JSON.parse(localStorage.getItem('cars')!) as Array<Car>
-   }
+    this.loadFilteredCars();
+  }
+
+  loadFilteredCars(): void {
+    this.carService.getFilteredCars('Toyota').subscribe((cars: Car[]) => {
+      this.filteredCars = cars;
+    });
   }
 }

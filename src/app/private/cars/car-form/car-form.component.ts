@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Car } from '../../../shared/interfaces/car';
+
 @Component({
   selector: 'app-car-form',
   imports: [
@@ -21,6 +22,9 @@ import { Car } from '../../../shared/interfaces/car';
   styleUrl: './car-form.component.scss',
 })
 export class CarFormComponent {
+  @Input() carToEdit?: Car; 
+  @Output() carSaved = new EventEmitter<Car>(); 
+
   public carform = new FormGroup({
     rszam: new FormControl('', [Validators.required]),
     tipus: new FormControl('', [Validators.required]),
@@ -34,42 +38,21 @@ export class CarFormComponent {
   });
 
   addCar() {
-    console.log('kint');
     if (this.carform.valid) {
-      console.log('bent');
       let helperArray: Array<Car> = [];
 
       if (localStorage.getItem('cars')) {
         helperArray = JSON.parse(localStorage.getItem('cars')!) as Array<Car>;
       }
 
-      let actualReason:
-        | 'Évfordulós biztosítás váltás'
-        | 'Új vagy használt jármű vásárlás' = 'Évfordulós biztosítás váltás';
+      let actualReason: 'Évfordulós biztosítás váltás' | 'Új vagy használt jármű vásárlás' =
+        this.carform.get('ok')!.value! as any;
 
-      if (
-        this.carform.get('ok')!.value! === 'Évfordulós biztosítás váltás' ||
-        this.carform.get('ok')!.value! === 'Új vagy használt jármű vásárlás'
-      ) {
-        actualReason = this.carform.get('ok')!.value! as
-          | 'Évfordulós biztosítás váltás'
-          | 'Új vagy használt jármű vásárlás';
-      }
-
-      let actualF: 'benzin' | 'dízel' | 'elektromos' = 'benzin';
-      if (
-        this.carform.get('uzemanyag')!.value! === 'benzin' ||
-        this.carform.get('uzemanyag')!.value! === 'dízel' ||
-        this.carform.get('uzemanyag')!.value! === 'elektromos'
-      ) {
-        actualF = this.carform.get('uzemanyag')!.value! as
-          | 'benzin'
-          | 'dízel'
-          | 'elektromos';
-      }
+      let actualF: 'benzin' | 'dízel' | 'elektromos' =
+        this.carform.get('uzemanyag')!.value! as any;
 
       const newCar: Car = {
-        id: 'valami',
+        id: 'valami', 
         rendszam: this.carform.get('rszam')!.value!,
         tipus: this.carform.get('tipus')!.value!,
         ok: actualReason,
@@ -83,6 +66,8 @@ export class CarFormComponent {
 
       helperArray.push(newCar);
       localStorage.setItem('cars', JSON.stringify(helperArray));
+
+      this.carSaved.emit(newCar); 
       window.location.reload();
     }
   }

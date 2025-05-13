@@ -2,10 +2,11 @@
     <div id="icondiv">
         <button mat-icon-button (click)="sidenav.emit(true)"><mat-icon>menu</mat-icon></button>
         <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+        <button mat-icon-button (click)="navigates('login')"><mat-icon>logout</mat-icon></button>
     </div>
     <div id="navdiv">
-        <button mat-raised-button class="menubutton"  (click)="navigates('main')"[ngClass]="page==='main'?'chosenbutton':''">Főoldal</button>
-        <button mat-raised-button class="menubutton" (click)="navigates('calculator')"[ngClass]="page==='calculator'?'chosenbutton':''">Kalkulátor</button>
+        <button mat-raised-button class="menubutton"  (click)="navigates('main')" [ngClass]="page==='main'?'chosenbutton':''">Főoldal</button>
+        <button mat-raised-button class="menubutton" (click)="navigates('calculator')" [ngClass]="page==='calculator'?'chosenbutton':''">Kalkulátor</button>
         <button mat-raised-button class="menubutton" (click)="navigates('cars')" [ngClass]="page==='cars'?'chosenbutton':''">Autóim</button>
     </div>
 </mat-toolbar>

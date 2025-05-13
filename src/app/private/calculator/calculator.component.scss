@@ -1,24 +1,42 @@
-mat-card{
-    width: 80%;
-    height: 80%;
-    margin: 1vh auto;
-    display: grid;
-    grid-template-rows: 20% 60% 20% ;
+mat-card {
+  width: 80%;
+  height: auto; // jobb, ha nem fix 80% magas, hanem igazodik a tartalomhoz
+  margin: 2vh auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 2vh;
 }
 
-mat-form-field{
-    width: 100%;
+mat-form-field {
+  width: 100%;
 }
 
-mat-card-footer{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 2vw;
+mat-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 2vw;
+  gap: 1vw;
 }
 
-mat-card-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+form mat-form-field {
+  width: 40%;
+  min-width: 300px;
+  margin-top: 1vh;
 }

@@ -1,23 +1,28 @@
-<form [formGroup]="loginForm">
-  <mat-form-field>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input type="email" matInput formControlName="email" />
-    @if (loginForm.get('email')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    } @else if (loginForm.get('email')?.hasError('email')) {
-    <mat-error>A formátum nem megfelelő</mat-error>
-    }
+    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+      A formátum nem megfelelő
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
+
+  <mat-form-field appearance="fill">
     <mat-label>Jelszó</mat-label>
     <input type="password" matInput formControlName="password" />
-    @if (loginForm.get('password')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    } @else if (loginForm.get('password')?.hasError('minlength')) {
-    <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
-    }
-    
+    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+      Túl rövid! (Min 6 hossz)
+    </mat-error>
   </mat-form-field>
-  <p>Teszteléshez írd be: email:a&#64;a jelszó:111111</p>
-  <button mat-flat-button (click)="navigates('main')">Bejelentkezés</button>
+
+<p>Teszteléshez írd be: email: <strong>a&#64;a.hu</strong> jelszó: <strong>111111</strong></p>
+
+
+<button mat-flat-button color="primary" type="submit">Bejelentkezés</button>
 </form>

@@ -1,58 +1,68 @@
-<form [formGroup]="registerform">
-  <mat-form-field>
+<form [formGroup]="registerform" (ngSubmit)="registration()">
+  <mat-form-field appearance="fill">
     <mat-label>Név</mat-label>
-    <input type="text" matInput formControlName="name" />
-    @if (registerform.get('name')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    }
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="registerform.get('name')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
+
+  <mat-form-field appearance="fill">
     <mat-label>Születési dátum</mat-label>
-    <input type="date" matInput formControlName="date" />
-    @if (registerform.get('date')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    }
+    <input matInput type="date" formControlName="date" />
+    <mat-error *ngIf="registerform.get('date')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input type="email" matInput formControlName="email" />
-    @if (registerform.get('email')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    } @else if (registerform.get('email')?.hasError('email')) {
-    <mat-error>A formátum nem megfelelő</mat-error>
-    }
-  </mat-form-field>
-  <mat-form-field>
+
+  <mat-form-field appearance="fill">
     <mat-label>Város</mat-label>
-    <input type="text" matInput formControlName="city" />
-    @if (registerform.get('city')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    }
+    <input matInput formControlName="city" />
+    <mat-error *ngIf="registerform.get('city')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
+
+  <mat-form-field appearance="fill">
     <mat-label>Telefonszám</mat-label>
-    <input type="tel" matInput formControlName="phone" />
-    @if (registerform.get('phone')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    }
+    <input matInput formControlName="phone" />
+    <mat-error *ngIf="registerform.get('phone')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" />
+    <mat-error *ngIf="registerform.get('email')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
+    <mat-error *ngIf="registerform.get('email')?.hasError('email')">
+      Helytelen formátum
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
     <mat-label>Jelszó</mat-label>
-    <input type="password" matInput formControlName="password" />
-    @if (registerform.get('password')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    } @else if (registerform.get('password')?.hasError('minlength')) {
-    <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
-    }
+    <input matInput type="password" formControlName="password" />
+    <mat-error *ngIf="registerform.get('password')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
+    <mat-error *ngIf="registerform.get('password')?.hasError('minlength')">
+      Minimum 6 karakter
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
-    <mat-label>Jelszó</mat-label>
-    <input type="password" matInput formControlName="repassword" />
-    @if (registerform.get('repassword')?.hasError('required')) {
-    <mat-error> Kötelezően kitöltendő mező </mat-error>
-    } @else if (registerform.get('repassword')?.hasError('minlength')) {
-    <mat-error>Túl rövid! (Min 6 hossz)</mat-error>
-    }
+
+  <mat-form-field appearance="fill">
+    <mat-label>Jelszó újra</mat-label>
+    <input matInput type="password" formControlName="repassword" />
+    <mat-error *ngIf="registerform.get('repassword')?.hasError('required')">
+      Kötelezően kitöltendő mező
+    </mat-error>
+    <mat-error *ngIf="registerform.get('repassword')?.hasError('minlength')">
+      Minimum 6 karakter
+    </mat-error>
   </mat-form-field>
-  <button mat-flat-button (click)="registration()">Regisztráció</button>
+
+  <button mat-flat-button color="primary" type="submit">Regisztráció</button>
 </form>

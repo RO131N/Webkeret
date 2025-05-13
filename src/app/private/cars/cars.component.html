@@ -1,8 +1,11 @@
 <mat-tab-group>
-  <mat-tab label="Autóim">
-    @for (car of cararray; track $index ; let i = $index) {
-    <app-carcard [Car]="car" [Index]="i"></app-carcard>
-    }
+  <mat-tab label="Autók">
+    <ng-container *ngFor="let car of filteredCars; let i = index">
+      <app-carcard [car]="car" [index]="i"></app-carcard>
+    </ng-container>
   </mat-tab>
-  <mat-tab label="Autó hozzáadása"><app-car-form></app-car-form></mat-tab>
+
+  <mat-tab label="Új autó hozzáadása">
+    <app-car-form></app-car-form>
+  </mat-tab>
 </mat-tab-group>

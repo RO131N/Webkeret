@@ -1,43 +1,35 @@
-<mat-card
-  [ngStyle]="
-    Index % 2 == 0
-      ? { 'background-color': 'white' }
-      : { 'background-color': '#eeeeee' }
-  "
->
-  <div class="img-container-div">
-    <div [ngClass]="Index % 2 == 0 ? 'img-blue-div' : 'img-orange-div'"></div>
-  </div>
 
-  <div>
-    <mat-card-header>{{ Car.tipus }}</mat-card-header>
-    <mat-card-content>
-     
-      <div class="mat-card-content-div">
-        <span>Model</span>
-        <span>Rendszám</span>
-        <span>Tipus</span>
-        <span>Biztosítási ok</span>
-        <span>Üzemanyag</span>
-        <span>Gyártási év</span>
-        <span>Teljesítmény</span>
-        <span>Tömeg</span>
-        <span>Tulaj</span>
-      </div>
-      <div class="mat-card-content-div">
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.model}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.rendszam}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.tipus}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.ok}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.uzemanyag}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.gyartasi_ev}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.teljesitmeny}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.tomeg}}</span>
-        <span [ngStyle]="Index%2===0 ? {'color':'#00BCD4'}:{'color':'#FF9800'}">{{Car.tulaj}}</span>
-        
-
-      </div>
-     
-    </mat-card-content>
-  </div>
+<mat-card>
+  <mat-card-header>{{ car.tipus }}</mat-card-header>
+  <mat-card-content>
+    <div [ngClass]="index % 2 === 0 ? 'img-blue-div' : 'img-orange-div'">
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.model }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.rendszam }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.tipus }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.ok }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.uzemanyag }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.gyartasi_ev }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.teljesitmeny }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.tomeg }}
+      </span>
+      <span [ngStyle]="index % 2 === 0 ? {'color':'#00BCD4'} : {'color':'#FF9800'}">
+        {{ car.tulaj }}
+      </span>
+    </div>
+  </mat-card-content>
 </mat-card>

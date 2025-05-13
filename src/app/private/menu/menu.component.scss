@@ -1,4 +1,5 @@
-@import '../../shared/styles/colors.scss';
+@use '../../shared/styles/colors.scss' as *;
+
 mat-toolbar{
     background-color: $cyan;
     display: grid;
