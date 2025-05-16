@@ -1,3 +1,6 @@
+Projekt téma: Autóbiztosítás.
+
+
 # C7ljs7Autobizt
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
